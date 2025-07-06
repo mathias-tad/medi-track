@@ -26,7 +26,7 @@ function Login() {
 
       localStorage.setItem("token", res.data.token);
       const decoded = jwtDecode(res.data.token);
-      console.log(decoded);
+      //console.log(decoded);
       if (decoded) {
         navigate(`/${decoded.position}`);
         toast.success(`Welcome ${decoded.username}`);
