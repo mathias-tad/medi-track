@@ -22,7 +22,7 @@ const PatientRegistration = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:2100/api/user/reg/patient-reg",
+        "https://medi-track-backend.onrender.com/api/user/reg/patient-reg",
         patientData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

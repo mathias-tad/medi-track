@@ -27,9 +27,12 @@ const ResetPass = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:2100/api/auth/sendotp", {
-        username,
-      });
+      const res = await axios.post(
+        "https://medi-track-backend.onrender.com/api/auth/sendotp",
+        {
+          username,
+        }
+      );
       //console.log(res);
       setLoading(false);
       if (res.data.success) {
@@ -50,7 +53,7 @@ const ResetPass = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:2100/api/auth/reset-password",
+        "https://medi-track-backend.onrender.com/api/auth/reset-password",
         {
           username,
           resetOTP,

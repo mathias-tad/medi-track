@@ -27,9 +27,12 @@ const Doctor = () => {
   });
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axios.get("http://localhost:2100/api/user/doctor", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const data = await axios.get(
+        "https://medi-track-backend.onrender.com/api/user/doctor",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setDataFetched(data.data);
       //console.log(data.data);
     };
@@ -38,7 +41,7 @@ const Doctor = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      `http://localhost:2100/api/user/doctor/update-history/${id}`,
+      `https://medi-track-backend.onrender.com/api/user/doctor/update-history/${id}`,
       sendPatientHistory,
       { headers: { Authorization: `Bearer ${token}` } }
     );

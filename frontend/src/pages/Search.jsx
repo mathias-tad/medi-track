@@ -68,7 +68,7 @@ const Search = () => {
                   e.preventDefault();
                   await axios
                     .post(
-                      `http://localhost:2100/api/user/reg/activate`,
+                      `https://medi-track-backend.onrender.com/api/user/reg/activate`,
                       { id: patient._id },
                       {
                         headers: { Authorization: `Bearer ${token}` },

@@ -24,8 +24,8 @@ function Reg() {
       try {
         found = await axios.get(
           searchBy == "bynumber"
-            ? `http://localhost:2100/api/user/reg/search?phoneNumber=${search}`
-            : `http://localhost:2100/api/user/reg/search?fullName=${search}`,
+            ? `https://medi-track-backend.onrender.com/api/user/reg/search?phoneNumber=${search}`
+            : `https://medi-track-backend.onrender.com/api/user/reg/search?fullName=${search}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

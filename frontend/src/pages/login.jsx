@@ -16,10 +16,13 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:2100/api/auth/login", {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        "https://medi-track-backend.onrender.com/api/auth/login",
+        {
+          username,
+          password,
+        }
+      );
 
       localStorage.setItem("token", res.data.token);
       const decoded = jwtDecode(res.data.token);

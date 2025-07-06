@@ -7,7 +7,7 @@ const ActivePatientsList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:2100/api/user/reg", {
+      .get("https://medi-track-backend.onrender.com/api/user/reg", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -19,9 +19,12 @@ const ActivePatientsList = () => {
   const clickHandler = (id) => {
     useEffect(() => {
       axios
-        .post(`http://localhost:2100/api/user/reg/activate/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .post(
+          `https://medi-track-backend.onrender.com/api/user/reg/activate/${id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then((res) => console.log(res));
     });
   };

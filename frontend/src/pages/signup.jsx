@@ -27,7 +27,7 @@ function Signup() {
       const token = localStorage.getItem("token");
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:2100/api/auth/register",
+        "https://medi-track-backend.onrender.com/api/auth/register",
         signupData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
