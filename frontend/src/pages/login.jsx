@@ -11,11 +11,13 @@ function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const res = await axios.post(
         "https://medi-track-backend.onrender.com/api/auth/login",
         {
@@ -34,6 +36,8 @@ function Login() {
     } catch (error) {
       if (error.status == 400) toast.error("Incorect Password");
       if (error.status == 404) toast.error("User not found contact the Admin");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,7 +77,7 @@ function Login() {
                 className="border-2 bg-gradient-to-r from-blue-800 to-blue-950 text-white rounded-full px-6 mt-4 cursor-pointer font-bold"
                 type="submit"
               >
-                Login
+                {loading ? "Loging in..." : "Login"}
               </button>
             </div>
             <p
