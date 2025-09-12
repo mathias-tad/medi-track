@@ -15,6 +15,7 @@ This module contains two main directories:
 - Node.js v22.14
 - npm 11.4
 - MongoDB URI and Brevo credentials
+- Create .env file at the root as the same as .env.example file with the correct info, not empty string value
 
 ## 💻 Running the client side
 
