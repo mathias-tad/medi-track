@@ -20,11 +20,11 @@ This module contains two main directories:
 
 To run the client side change your working directory to frontend/ first
 
+### Changes directory to frontend/
+
 ```bash
 cd frontend
 ```
-
-- Changes directory to frontend/
 
 ```bash
 npm install
