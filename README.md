@@ -26,40 +26,42 @@ To run the client side change your working directory to frontend/ first
 cd frontend
 ```
 
+### Install dependencies
+
 ```bash
 npm install
 ```
 
-- Install dependencies
+### Build client
 
 ```bash
 npm run build
 ```
 
-- Compile the TypeScript files
 - Outputs optimized assets to the dist/ folder
+
+### Serve Production
 
 ```bash
 npm run preview
 ```
 
-- Serves production build at http://localhost:4173/
-
 ## 🖧 Running the server side
 
-To run the server side working directory should be at the root directory (i.e. MySongs/)
+To run the server side working directory should be at the root directory (i.e. medi-track/)
+
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-- Install dependencies
+### Runs the server side
 
 ```bash
 npm start
 ```
 
-- Runs the server side of the app in the production mode.
 - Open http://localhost:2100 to view it in your browser.
 
 ## 🧩 Features of the App
@@ -67,7 +69,7 @@ npm start
 🔏 User authentication  
 👥 User account for Admin, Doctors, Nurses, Labtechs, Finances and Registration  
 👷 Role based authentication  
-➕ Create patient history
+➕ Create patient history  
 🔍 Search patient functionality  
 📝 Edit and delete users
 
