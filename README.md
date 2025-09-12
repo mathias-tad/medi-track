@@ -71,7 +71,8 @@ npm start
 👷 Role based authentication  
 ➕ Create patient history  
 🔍 Search patient functionality  
-📝 Edit and delete users
+📝 Edit and delete users  
+✍🏻 Reset password
 
 ## 🛠️ Future Improvements
 
