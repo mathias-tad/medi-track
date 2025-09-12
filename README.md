@@ -14,7 +14,7 @@ This module contains two main directories:
 
 - Node.js v22.14
 - npm 11.4
-- MongoDB URI
+- MongoDB URI and Brevo credentials
 
 ## 💻 Running the client side
 
