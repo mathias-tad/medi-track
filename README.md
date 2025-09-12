@@ -1,4 +1,4 @@
-# MySongs
+# MediTrack
 
 This is a full-stack web app designed to make activities in the hospital digitalize and make all communications easy. It makes patient registration and patients data handdeling easy.
 
