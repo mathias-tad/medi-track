@@ -10,7 +10,7 @@ export const register = async (req, res) => {
     try {
       const userFound = await User.findOne({ email });
       if (userFound) {
-        res
+        return res
           .status(400)
           .json({ message: "User already found with this email Address" });
       }
@@ -30,15 +30,17 @@ export const register = async (req, res) => {
         text: `Your user account has been created as ${position} position with a \nusername: ${username}\npassword: ${password}\nplease don't forget to change your password by clicking "forgot password" in login page`,
       };
       await transporter.sendMail(mailOptions);
-      res.status(201).json({ message: `User created as a: ${position}` });
+      return res
+        .status(201)
+        .json({ message: `User created as a: ${position}` });
     } catch (err) {
-      res
+      return res
         .status(500)
         .json({ message: "Something went wrong please try again later!!!" });
       console.log(err);
     }
   } else
-    res
+    return res
       .status(400)
       .json({ message: "Please fill all filds with an approprate data" });
 };

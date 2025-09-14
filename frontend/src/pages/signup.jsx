@@ -33,16 +33,17 @@ function Signup() {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (res.status == 400) toast.error(res.data.message);
-      else toast.success(res.data.message);
-      setLoading(false);
-      setSignupData({
-        username: "",
-        email: "",
-        password: "",
-        position: "",
-      });
-      setClicked(false);
-      navigate("/admin");
+      else {
+        setSignupData({
+          username: "",
+          email: "",
+          password: "",
+          position: "",
+        });
+        setClicked(false);
+        navigate("/admin");
+        toast.success(res.data.message);
+      }
     } catch (err) {
       console.error(err);
     } finally {
