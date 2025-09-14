@@ -44,6 +44,8 @@ function Signup() {
       navigate("/admin");
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
   return (
