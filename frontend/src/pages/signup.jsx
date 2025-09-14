@@ -32,7 +32,8 @@ function Signup() {
         signupData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      toast.success(res.data.message);
+      if (res.status == 400) toast.error(res.data.message);
+      else toast.success(res.data.message);
       setLoading(false);
       setSignupData({
         username: "",
