@@ -21,18 +21,16 @@ const ResetPass = () => {
       setSecond((prev) => prev - 1);
     }, 1000);
   };
+  const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
 
   const otpHandler = async (e) => {
     e.preventDefault();
 
     try {
       setLoading(true);
-      const res = await axios.post(
-        "https://medi-track-backend.onrender.com/api/auth/sendotp",
-        {
-          username,
-        }
-      );
+      const res = await axios.post(`${serverAddress}/api/auth/sendotp`, {
+        username,
+      });
       //console.log(res);
       setLoading(false);
       if (res.data.success) {
@@ -52,14 +50,11 @@ const ResetPass = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post(
-        "https://medi-track-backend.onrender.com/api/auth/reset-password",
-        {
-          username,
-          resetOTP,
-          newPassword,
-        }
-      );
+      const res = await axios.post(`${serverAddress}/api/auth/reset-password`, {
+        username,
+        resetOTP,
+        newPassword,
+      });
       //console.log(res);
       setLoading(false);
       if (res.data.success) {

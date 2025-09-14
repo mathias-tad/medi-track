@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 const token = localStorage.getItem("token");
+const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
 
 const Search = () => {
   const navigate = useNavigate();
@@ -68,7 +69,7 @@ const Search = () => {
                   e.preventDefault();
                   await axios
                     .post(
-                      `https://medi-track-backend.onrender.com/api/user/reg/activate`,
+                      `${serverAddress}/api/user/reg/activate`,
                       { id: patient._id },
                       {
                         headers: { Authorization: `Bearer ${token}` },

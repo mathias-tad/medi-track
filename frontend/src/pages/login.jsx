@@ -12,19 +12,17 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
       setLoading(true);
-      const res = await axios.post(
-        "https://medi-track-backend.onrender.com/api/auth/login",
-        {
-          username,
-          password,
-        }
-      );
+      const res = await axios.post(`${serverAddress}/api/auth/login`, {
+        username,
+        password,
+      });
 
       localStorage.setItem("token", res.data.token);
       const decoded = jwtDecode(res.data.token);

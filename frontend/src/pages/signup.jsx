@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 
 function Signup() {
   const navigate = useNavigate();
+  const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
   const [signupData, setSignupData] = useState({
     username: "",
     email: "",
@@ -27,7 +28,7 @@ function Signup() {
       const token = localStorage.getItem("token");
       setLoading(true);
       const res = await axios.post(
-        "https://medi-track-backend.onrender.com/api/auth/register",
+        `${serverAddress}/api/auth/register`,
         signupData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

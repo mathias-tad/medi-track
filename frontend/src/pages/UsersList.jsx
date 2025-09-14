@@ -17,6 +17,7 @@ const UsersList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userId, setUserId] = useState("");
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
   const [editData, setEditData] = useState({
     username: "",
     email: "",
@@ -25,7 +26,7 @@ const UsersList = () => {
 
   useEffect(() => {
     axios
-      .get("https://medi-track-backend.onrender.com/api/user/admin", {
+      .get(`${serverAddress}/api/user/admin`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setUsers(res.data));
@@ -37,7 +38,7 @@ const UsersList = () => {
   const submitHandler = async (e) => {
     try {
       await axios.put(
-        `https://medi-track-backend.onrender.com/api/user/admin/update-user/${userId}`,
+        `${serverAddress}/api/user/admin/update-user/${userId}`,
         editData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -46,7 +47,7 @@ const UsersList = () => {
       setEditData({ username: "", email: "", position: "" });
       toast.success("User Updated");
       await axios
-        .get("https://medi-track-backend.onrender.com/api/user/admin", {
+        .get(`${serverAddress}/api/user/admin`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setUsers(res.data));
@@ -195,14 +196,14 @@ const UsersList = () => {
               onClick={async () => {
                 try {
                   await axios.delete(
-                    `http://localhost:2100/api/user/admin/delete/${userId}`,
+                    `${serverAddress}/api/user/admin/delete/${userId}`,
                     { headers: { Authorization: `Bearer ${token}` } }
                   );
                   toast.success("User Deleted");
                   setIsModalOpen(false);
 
                   axios
-                    .get("http://localhost:2100/api/user/admin", {
+                    .get(`${serverAddress}/api/user/admin`, {
                       headers: { Authorization: `Bearer ${token}` },
                     })
                     .then((res) => setUsers(res.data));

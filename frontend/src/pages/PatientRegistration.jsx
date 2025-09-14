@@ -21,8 +21,9 @@ const PatientRegistration = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
+      const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
       const res = await axios.post(
-        "https://medi-track-backend.onrender.com/api/user/reg/patient-reg",
+        `${serverAddress}/api/user/reg/patient-reg`,
         patientData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

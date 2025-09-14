@@ -20,15 +20,13 @@ const Nurse = () => {
   });
   const [patientHistory, setPatientHistory] = useState([]);
   const [id, setId] = useState("");
+  const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axios.get(
-        "https://medi-track-backend.onrender.com/api/user/nurse",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const data = await axios.get(`${serverAddress}/api/user/nurse`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setDataFetched(data.data);
       //console.log(data.data);
     };

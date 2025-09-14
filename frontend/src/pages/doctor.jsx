@@ -25,14 +25,12 @@ const Doctor = () => {
     history: "",
     createdBy: "",
   });
+  const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axios.get(
-        "https://medi-track-backend.onrender.com/api/user/doctor",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const data = await axios.get(`${serverAddress}/api/user/doctor`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setDataFetched(data.data);
       //console.log(data.data);
     };
@@ -41,7 +39,7 @@ const Doctor = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      `https://medi-track-backend.onrender.com/api/user/doctor/update-history/${id}`,
+      `${serverAddress}/api/user/doctor/update-history/${id}`,
       sendPatientHistory,
       { headers: { Authorization: `Bearer ${token}` } }
     );

@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 const ActivePatientsList = () => {
   const token = localStorage.getItem("token");
   const [patients, setPatients] = useState([]);
+  const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
 
   useEffect(() => {
     axios
-      .get("https://medi-track-backend.onrender.com/api/user/reg", {
+      .get(`${serverAddress}/api/user/reg`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -19,12 +20,9 @@ const ActivePatientsList = () => {
   const clickHandler = (id) => {
     useEffect(() => {
       axios
-        .post(
-          `https://medi-track-backend.onrender.com/api/user/reg/activate/${id}`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        )
+        .post(`${serverAddress}/api/user/reg/activate/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
         .then((res) => console.log(res));
     });
   };

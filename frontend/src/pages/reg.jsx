@@ -17,6 +17,7 @@ function Reg() {
   const token = localStorage.getItem("token");
   var found = {};
   const decoded = jwtDecode(token);
+  const serverAddress = import.meta.env.VITE_SERVER_ADDRESS;
 
   const clickHandler = async (e) => {
     e.preventDefault();
@@ -24,8 +25,8 @@ function Reg() {
       try {
         found = await axios.get(
           searchBy == "bynumber"
-            ? `https://medi-track-backend.onrender.com/api/user/reg/search?phoneNumber=${search}`
-            : `https://medi-track-backend.onrender.com/api/user/reg/search?fullName=${search}`,
+            ? `${serverAddress}/api/user/reg/search?phoneNumber=${search}`
+            : `${serverAddress}/api/user/reg/search?fullName=${search}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
