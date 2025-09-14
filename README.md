@@ -16,6 +16,7 @@ This module contains two main directories:
 - npm 11.4
 - MongoDB URI and Brevo credentials
 - Create .env file at the root as the same as .env.example file with the correct info, not empty string value
+- Create another .env file in frontend/ directory exact copy of .env.example in frontend/
 
 ## 💻 Running the client side
 
