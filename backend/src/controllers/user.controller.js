@@ -14,7 +14,7 @@ export const register = async (req, res) => {
           .status(400)
           .json({ message: "User already found with this email Address" });
       }
-      const userFounded = await User.findOne({ userName });
+      const userFounded = await User.findOne({ username });
       if (userFounded) {
         return res
           .status(400)
