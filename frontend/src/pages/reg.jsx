@@ -48,7 +48,7 @@ function Reg() {
     <>
       <nav className="flex justify-between items-center h-16 w-full px-10 py-4">
         <img
-          onClick={() => navigate("/admin")}
+          onClick={() => navigate("/reg")}
           className="h-full cursor-pointer"
           src={asset.logo}
           alt=""
