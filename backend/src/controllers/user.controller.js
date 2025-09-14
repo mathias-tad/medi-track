@@ -8,6 +8,12 @@ export const register = async (req, res) => {
   //console.log(req.body);
   if (username && password && email && position) {
     try {
+      const userFound = await User.findOne({ email });
+      if (userFound) {
+        res
+          .status(400)
+          .json({ message: "User already found with this email Address" });
+      }
       const hashedPass = await bcrypt.hash(password, 9);
       const newUser = new User({
         username,
