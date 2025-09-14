@@ -14,6 +14,12 @@ export const register = async (req, res) => {
           .status(400)
           .json({ message: "User already found with this email Address" });
       }
+      const userFounded = await User.findOne({ userName });
+      if (userFounded) {
+        return res
+          .status(400)
+          .json({ message: "User already found with this Username" });
+      }
       const hashedPass = await bcrypt.hash(password, 9);
       const newUser = new User({
         username,

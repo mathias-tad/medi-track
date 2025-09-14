@@ -32,7 +32,8 @@ function Signup() {
         signupData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      if (res.status == 400) toast.error(res.data.message);
+      console.log(res);
+      if (res.status == 400) toast.error("User found");
       else {
         setSignupData({
           username: "",
@@ -45,7 +46,7 @@ function Signup() {
         toast.success(res.data.message);
       }
     } catch (err) {
-      console.error(err);
+      toast.error(err.response.data.message);
     } finally {
       setLoading(false);
     }
